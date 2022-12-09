@@ -26,8 +26,9 @@ let board, turn, winner, tie
 /*------------------------ Cached Element References ------------------------*/
 
 const squareEls = document.getElementsByClassName("sqr")
-const messageEl = document.getElementById("message")
 console.log(squareEls)
+const messageEl = document.getElementById("message")
+
 
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -45,41 +46,55 @@ function init() {
     render()
 } 
 
+init()
+
 function render() {
     updateBoard()
     updateMessage()
 }
 
 function updateBoard() {
-    board.forEach(function(sqr, idx) {
-    console.log(sqr, idx)}
-)}
+    board.forEach(box => {
+        document.getElementById('sq0').textContent = "A"
+        document.getElementById('sq1').textContent = "B"
+        document.getElementById('sq2').textContent = "C"
+        document.getElementById('sq3').textContent = "D"
+        document.getElementById('sq4').textContent = "E"
+        document.getElementById('sq5').textContent = "F"
+        document.getElementById('sq6').textContent = "G"
+        document.getElementById('sq7').textContent = "H"
+        document.getElementById('sq8').textContent = "I"
+    })
+   
+}
 
 updateBoard()
 
-function updateMessage() {
-    console.log("Update Message")
-}
+// updateBoard()
 
-function handleClick(evt) {
-    placePiece()
-    checkForTie()
-    checkForWinner()
-    switchPlayerTurn()
-}
+// function updateMessage() {
+//     console.log("Update Message")
+// }
 
-function placePiece() {
+// function handleClick(evt) {
+//     placePiece()
+//     checkForTie()
+//     checkForWinner()
+//     switchPlayerTurn()
+// }
 
-}
+// function placePiece() {
 
-function checkForTie() {
+// }
 
-}
+// function checkForTie() {
 
-function checkForWinner() {
+// }
 
-}
+// function checkForWinner() {
 
-function switchPlayerTurn() {
+// }
 
-}
+// function switchPlayerTurn() {
+
+// }
