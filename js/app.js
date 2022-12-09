@@ -26,7 +26,7 @@ let board, turn, winner, tie
 /*------------------------ Cached Element References ------------------------*/
 
 const squareEls = document.getElementsByClassName("sqr")
-console.log(squareEls)
+console.log(squareEls);
 const messageEl = document.getElementById("message")
 
 
@@ -39,7 +39,7 @@ const messageEl = document.getElementById("message")
 
 function init() {
     console.log("its working!")
-    board = [null, null, null, null, null, null, null, null, null]
+    board = [1, null, null, 1, null, null, 1, null, null]
     turn = 1
     winner = false
     tie = false
@@ -53,28 +53,38 @@ function render() {
     updateMessage()
 }
 
+
 function updateBoard() {
-    board.forEach(box => {
-        document.getElementById('sq0').textContent = "A"
-        document.getElementById('sq1').textContent = "B"
-        document.getElementById('sq2').textContent = "C"
-        document.getElementById('sq3').textContent = "D"
-        document.getElementById('sq4').textContent = "E"
-        document.getElementById('sq5').textContent = "F"
-        document.getElementById('sq6').textContent = "G"
-        document.getElementById('sq7').textContent = "H"
-        document.getElementById('sq8').textContent = "I"
+    board.forEach(function(square, i) {
+        if (square === -1) {
+            squareEls[i].textContent = "O"; return
+        } else if (square === 1) {
+            squareEls[i].textContent = "X"; return
+        } else {
+            squareEls[i].textContent = ""; return
+        }
     })
    
 }
 
 updateBoard()
 
-// updateBoard()
+function updateMessage() {
+    if (winner === false && tie === false && turn === -1) {
+        messageEl.textContent = "Player X, it's your turn!"
+    } else if (winner === false && tie === false && turn === 1){
+        messageEl.textContent = "Player O, it's your turn!"
+    } else if (winner === true && tie === false && turn === 1) {
+        messageEl.textContent = "Player X is the Winner!"
+    } else if (winner === true && tie === false && turn === -1) {
+        messageEl.textContent = "Player 0 is the winner!"
+    } else {
+        messageEl.textContent = "It's a tie game!"
+    }
+    console.log(messageEl.textContent)
+}
 
-// function updateMessage() {
-//     console.log("Update Message")
-// }
+updateMessage()
 
 // function handleClick(evt) {
 //     placePiece()
