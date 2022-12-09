@@ -43,7 +43,7 @@ function init() {
     winner = false
     tie = false
     render()
-}
+} 
 
 function render() {
     updateBoard()
