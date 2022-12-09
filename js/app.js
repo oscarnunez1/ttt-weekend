@@ -16,7 +16,9 @@
 
 /*-------------------------------- Constants --------------------------------*/
 
-
+const winningCombos = [
+    [0, 1, 2], [2, 5, 8], [0, 3, 6], [6, 7, 8], [0, 4, 8], [2, 4, 6], [1, 4, 7], [3, 4, 5]
+]
 
 /*---------------------------- Variables (state) ----------------------------*/
 
@@ -38,8 +40,7 @@ const messageEl = document.getElementById("message")
 /*-------------------------------- Functions --------------------------------*/
 
 function init() {
-    console.log("its working!")
-    board = [1, null, null, 1, null, null, 1, null, null]
+    board = [1, null, -1, 1, null, -1, 1, null, -1]
     turn = 1
     winner = false
     tie = false
