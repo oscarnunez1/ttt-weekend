@@ -169,7 +169,7 @@ updateMessage()
 function handleClick(evt) {
  console.log(evt)
  const sqIdx = evt.target.id 
- if (board[sqIdx].innerHTML != null) return
+ if (board[sqIdx].innerHTML !== null) return
     console.log(sqIdx)
  }
  
