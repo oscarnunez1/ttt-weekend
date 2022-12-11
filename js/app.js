@@ -16,6 +16,12 @@
 
 /*-------------------------------- Constants --------------------------------*/
 
+// Step 5 - Define the required constants
+
+
+  // 5a) In a constant called `winningCombos` define the eight possible winning 
+  //     combinations as an array of arrays.
+
 const winningCombos = [
     [0, 1, 2], 
     [2, 5, 8], 
@@ -44,12 +50,16 @@ console.log("Required variables work", board)
 
 // Step 2 - Store cached element references.
 
-const squareEls = document.querySelectorAll(".sqr")    // 2a) In a constant called `squareEls`, store the nine elements 
+// 2a) In a constant called `squareEls`, store the nine elements 
 //    representing the squares on the page.
+
+const squareEls = document.querySelectorAll(".sqr")
 console.log("squareEls works")
 
-const messageEl = document.querySelector("#message")      // 2b) In a constant called `messageEl`, store the element that displays the 
+ // 2b) In a constant called `messageEl`, store the element that displays the 
 //    game's status on the page.
+
+const messageEl = document.querySelector("#message")     
 console.log("messageEl works")
 
 
@@ -57,22 +67,27 @@ console.log("messageEl works")
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-// squareEls.forEach(function (box) {
-//     box.addEventListener("click", handleClick)
-//     console.log("addEventListener is working")
-// });
+squareEls.forEach(function (box) {
+    box.addEventListener("click", handleClick)
+    console.log("addEventListener is working")
+});
     
 
 /*-------------------------------- Functions --------------------------------*/
+
+/*-------------------------------- initialize function --------------------------------*/
 
 
 // Step 3 - Upon loading, the game state should be initialized, and a function 
 //          should be called to render this game state.
 
-function init() {     // 3a) Create a function called `init`.
-    board = [null, null, null, null, null, null, null, null, null] // 3c) Set the `board` variable to an array containing nine `null`s to 
+ // 3a) Create a function called `init`.
+ // 3c) Set the `board` variable to an array containing nine `null`s to 
     //    represent empty squares.
 
+
+function init() {    
+    board = [null, null, null, null, null, null, null, null, null] 
     turn = 1        // 3d) Set the `turn` to `1` - which will represent player X.
     winner = false  // 3e) Set the `winner` to false.
     tie = true      // 3f) Set `tie` to false.
@@ -81,14 +96,20 @@ function init() {     // 3a) Create a function called `init`.
 
 init()              // 3b) Call this `init` function when the app loads.
 
+/*-------------------------------- Render Function --------------------------------*/
+
 // Step 4 - The state of the game should be rendered to the user
 
-function render() {      // 4a) Create a function called `render`, then set it aside for now.
+ // 4a) Create a function called `render`, then set it aside for now.
+
+function render() {     
     updateBoard()        // 4f) Invoke both the `updateBoard` and the `updateMessage` functions
     updateMessage()        //     inside of your `render` function.
 }
 
 render()
+
+/*-------------------------------- updateBoard --------------------------------*/
 
 // 4b) Create a function called `updateBoard`.
  //     - Use the current index of the iteration to access the corresponding 
@@ -114,7 +135,12 @@ function updateBoard() {
 
 updateBoard()
 
+/*-------------------------------- updateMessage --------------------------------*/
+
 // 4d) Create a function called `updateMessage`
+
+// 4e) In the `updateMessage` function, render a message based on the 
+  //     current game state:
 
 function updateMessage() {                      
     if (winner === false && tie === false && turn === -1) {
@@ -133,10 +159,21 @@ function updateMessage() {
 
 updateMessage()
 
+/*-------------------------------- handleClick --------------------------------*/
+
+ // 6a) Create a function called `handleClick`. It will have an `evt`
+  //     parameter.
+  // Step 6 - Handle a player clicking a square with a `handleClick` function
+
+
 function handleClick(evt) {
- console.log("My handleClick is working")
+ console.log(evt)
+ const sqIdx = evt.target.id 
+ if (board[sqIdx].innerHTML != null) return
+    console.log(sqIdx)
+ }
  
-}
+
 
 handleClick()
 
