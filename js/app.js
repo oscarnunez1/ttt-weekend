@@ -1,22 +1,5 @@
 
-
-// 1) Define the required variables used to track the state of the game
-
-// 2) Store cached element references
-
-// 3) Upon loading, the game state should be initialized, and a function should be called to render this game state
-
-// 4) The state of the game should be rendered to the user
-
-// 5) Define the required constants
-
-// 6) Handle a player clicking a square with a `handleClick` function
-
-// 7) Create Reset functionality
-
 /*-------------------------------- Constants --------------------------------*/
-
-
 
 const winningCombos = [
     [0, 1, 2], 
@@ -43,7 +26,6 @@ const resetBtnEl = document.getElementById("reset-button")
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-
 squareEls.forEach(function(square) {
     square.addEventListener("click", handleClick)
 })
@@ -59,17 +41,12 @@ function init(evt) {
     winner = false  
     tie = false     
     render()        
-} 
-           
-
-/*-------------------------------- Render Function -----------------------------*/
+}
 
 function render(evt) {     
     updateBoard()        
     updateMessage()   
 }
-
-/*-------------------------------- updateBoard --------------------------------*/
 
 function updateBoard() {         
     board.forEach(function(square, index) {
@@ -81,28 +58,20 @@ function updateBoard() {
             return squareEls[index].textContent = ""
         }
         
-        })
-    }
+    })
+}
 
-/*-------------------------------- updateMessage -------------------------------*/
-
-function updateMessage() {                      
-    if (winner === false && tie === false && turn === -1) {
-        messageEl.textContent = "Player O, it's your turn!"
-    } else if (winner === false && tie === false && turn === 1){
-        messageEl.textContent = "Player X, it's your turn!"
-    } else if (winner === true && tie === false && turn === 1) {
-        messageEl.textContent = "Player X is the Winner!"
-    } else if (winner === true && tie === false && turn === -1) {
-        messageEl.textContent = "Player O is the winner!"
-    } else if (winner === false && tie === true && turn === 1 || turn === -1) {
-        messageEl.textContent = "It's a tie! Restart game."
+function updateMessage() {
+    if(!winner && !tie){
+        messageEl.innerText = `It's ${turn > 0 ? 'X' : 'O'}'s turn`
+    } else if(!winner && tie) {
+        messageEl.innerText = `Tie game`
+    } else {
+        messageEl.innerText = `${turn > 0 ? 'X' : 'O'} wins`
     }
 }
 
 updateMessage()
-
-/*-------------------------------- handleClick --------------------------------*/
 
 
 function handleClick(evt) {
@@ -134,9 +103,9 @@ function checkForWinner(i) {
           }, 0); 
         if (Math.abs(sum) === 3){
         winner = true
-      } 
+        } 
     })
-  }
+}
 
 function switchPlayerTurn() {
     if (winner === true) {
