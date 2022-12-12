@@ -96,8 +96,8 @@ function updateMessage() {
         messageEl.textContent = "Player X is the Winner!"
     } else if (winner === true && tie === false && turn === -1) {
         messageEl.textContent = "Player O is the winner!"
-    } else {
-        messageEl.textContent = "It's a tie game!"
+    } else if (winner === false && tie === true) {
+        messageEl.textContent = "It's a tie! Restart game."
     }
     console.log(messageEl.textContent)
 }
