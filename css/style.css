@@ -34,3 +34,9 @@ h1 {
 h2 {
   text-align: center;
 }
+
+.btn {
+  width: 250px;
+  text-align: center; 
+  margin: auto;
+}

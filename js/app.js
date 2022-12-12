@@ -51,6 +51,7 @@ squareEls.forEach(function(square) {
 resetBtnEl.addEventListener("click", init)
 
 /*-------------------------------- Functions --------------------------------*/
+init()  
 
 function init(evt) {    
     board = [null, null, null, null, null, null, null, null, null] 
@@ -59,8 +60,7 @@ function init(evt) {
     tie = false     
     render()        
 } 
-
-init()             
+           
 
 /*-------------------------------- Render Function -----------------------------*/
 
