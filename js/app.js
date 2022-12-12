@@ -40,7 +40,6 @@ const squareEls = document.querySelectorAll(".sqr")
 const messageEl = document.querySelector("#message")   
 
 const resetBtnEl = document.getElementById("reset-button")
-console.log(resetBtnEl)
 
 /*----------------------------- Event Listeners -----------------------------*/
 
@@ -99,7 +98,6 @@ function updateMessage() {
     } else if (winner === false && tie === true) {
         messageEl.textContent = "It's a tie! Restart game."
     }
-    console.log(messageEl.textContent)
 }
 
 updateMessage()
@@ -116,7 +114,6 @@ function handleClick(evt) {
     checkForWinner()
     switchPlayerTurn()
     render()
-    console.log(evt)
  }
 
  
